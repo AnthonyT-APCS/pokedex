@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+<<<<<<< HEAD
 	<classpathentry kind="src" path=""/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
 		<attributes>
@@ -32,5 +33,8 @@
 	<classpathentry kind="lib" path="aws-toolkit-for-eclipse-v201805311643/plugins/com.amazonaws.eclipse.rds_1.0.0.v201805311643.jar"/>
 	<classpathentry kind="lib" path="aws-toolkit-for-eclipse-v201805311643/plugins/com.amazonaws.eclipse.sdk.ui_2.1.0.v201805311643.jar"/>
 	<classpathentry kind="lib" path="aws-toolkit-for-eclipse-v201805311643/plugins/com.amazonaws.eclipse.simpledb_1.0.0.v201805311643.jar"/>
+=======
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+>>>>>>> branch 'master' of https://github.com/AnthonyT-APCS/pokedex.git
 	<classpathentry kind="output" path="bin"/>
 </classpath>
