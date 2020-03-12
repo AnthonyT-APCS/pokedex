@@ -13,7 +13,7 @@ public class Database {
 	public static void connect() throws ClassNotFoundException, SQLException {
 		Class.forName("org.sqlite.JDBC");
 		try {
-			con = DriverManager.getConnection("JDBC:SQLite:Pokemon.db");
+			con = DriverManager.getConnection("JDBC:SQLite:Pokemon.db.sqbpro");
 			System.out.println("Connection successful");
 		}
 		catch(Exception e) {
