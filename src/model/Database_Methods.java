@@ -7,6 +7,7 @@ import java.sql.SQLException;
 public class Database_Methods {
 	public static Connection connect(String input) {
 		//Url format is like: jdbc:sqlite:src/Model/amazon2.db
+		//hi
 		
 		String url = input;
 		
