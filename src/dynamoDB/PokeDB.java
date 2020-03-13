@@ -23,11 +23,12 @@ public class PokeDB {
 	private static AmazonDynamoDB client;
 	private static DynamoDB dynamoDB;
 	private static Table poketable;
+	private static Index skIndex;
+	private static Index type2Index;
+	private static Index skpkIndex;
 	
 	public static void main(String[] args) {
-		ArrayList<Item> itemArray = getType("Grass");
-		Item item = getPokemon(itemArray.get(6).getString("Evo2"), "Grass");
-		System.out.println(item);
+		ArrayList<Item> itemArray = searchPokemon("Grass", "O");
 	}
 	
 	private static void init() {
@@ -48,6 +49,9 @@ public class PokeDB {
         
         dynamoDB = new DynamoDB(client);
         poketable = dynamoDB.getTable("Poked");
+        skIndex = poketable.getIndex("SK-index");
+        type2Index = poketable.getIndex("SecondaryType-index");
+        skpkIndex = poketable.getIndex("SK-PK-index");
 	}
 	
 	public static ArrayList<Item> getType(String type) {
@@ -111,5 +115,65 @@ public class PokeDB {
 		Item item = poketable.getItem(spec);
 		
 		return item;
+	}
+	
+	public static ArrayList<Item> searchPokemon(String query) {
+		init();
+		
+		ArrayList<Item> itemArray = new ArrayList<>();
+		
+		QuerySpec spec = new QuerySpec().withKeyConditionExpression("begins_with(PK, :name)")
+				.withValueMap(new ValueMap().withString(":name", query));
+		
+		ItemCollection<QueryOutcome> items = null;
+        Iterator<Item> iterator = null;
+        Item item = null;
+
+        try{
+        	System.out.println("Querying " + query);
+            items = poketable.query(spec);
+            iterator = items.iterator();
+            while(iterator.hasNext()) {
+            	item = iterator.next();
+            	itemArray.add(item);
+                System.out.println(item.getString("PK"));
+            }
+        }
+        catch(Exception e) {
+        	System.err.println("Unable to query pokemon");
+        	System.err.println(e.getMessage());
+        }
+		
+		return itemArray;
+	}
+	
+	public static ArrayList<Item> searchPokemon(String type, String query) {
+		init();
+		
+		ArrayList<Item> itemArray = new ArrayList<>();
+		
+		QuerySpec spec = new QuerySpec().withKeyConditionExpression("SK = :type and begins_with(PK, :name)")
+				.withValueMap(new ValueMap().withString(":type", type).withString(":name", query));
+		
+		ItemCollection<QueryOutcome> items = null;
+        Iterator<Item> iterator = null;
+        Item item = null;
+
+        try{
+        	System.out.println("Querying " + query);
+            items = skpkIndex.query(spec);
+            iterator = items.iterator();
+            while(iterator.hasNext()) {
+            	item = iterator.next();
+            	itemArray.add(item);
+                System.out.println(item.getString("PK"));
+            }
+        }
+        catch(Exception e) {
+        	System.err.println("Unable to query pokemon");
+        	System.err.println(e.getMessage());
+        }
+		
+		return itemArray;
 	}
 }
