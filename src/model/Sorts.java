@@ -7,12 +7,6 @@ import model.Pokemon;
 import model.Sorts;
 import model.Sorts.ListType;
 
-/**
- * 
- *
- * @author Kevin Shihora
- * @version 1
- */
 public class Sorts
 {
     enum ListType {Standard, Bubble, Insert, Selection};
