@@ -55,24 +55,15 @@ public class Sorts
                 list = this.list;
                 break;
             case Bubble:
-                System.out.println("Bubble Sort -- "
-                  + " Operations: " + (this.bcompares + this.bswaps)
-                  + " Compares: " + this.bcompares
-                  + " Swaps: " + this.bswaps);
+                System.out.println("Bubble Sort -- ");
                 list = this.blist;
                 break;
             case Insert:
-                System.out.println("Insertions Sort -- "
-                        + " Operations: " + (this.icompares + this.iswaps)
-                        + " Compares: " + this.icompares
-                        + " Swaps: " + this.iswaps);
+                System.out.println("Insertions Sort -- ");
                       list = this.ilist;
                       break;
             default:
-                System.out.println("Selection Sort -- "
-                        + " Operations: " + (this.scompares + this.sswaps)
-                        + " Compares: " + this.scompares
-                        + " Swaps: " + this.sswaps);
+                System.out.println("Selection Sort -- ");
                       list = this.slist;
                       break;
 
