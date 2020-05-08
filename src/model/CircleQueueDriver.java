@@ -97,7 +97,7 @@ public class CircleQueueDriver {
 		trial.showCQueue();
 		
 		//delete queue objects
-		trial.deleteCQueue();
+		//trial.deleteCQueue();
 	}
 	
 }
