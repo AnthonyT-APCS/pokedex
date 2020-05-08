@@ -77,17 +77,12 @@ public class Sorts
             // bubble sort key logic
             for (int k = 1; k < blist.length - i; k++) {
                 
-                // analytics
-                this.bcompares++; // compare counter
-                
                 // bubble sort swap logic
                 if (blist[k-1] > blist[k]) {
                     int swap = blist[k];
                     blist[k] = blist[k-1];
                     blist[k-1] = swap;
                
-                    // analytics
-                    this.bswaps++; // swap counter
                 }
             
             }
@@ -109,13 +104,8 @@ public class Sorts
                 ilist[k] = ilist[k-1];
                 k--;
                 
-                // analytics
-                this.icompares++; // compare counter
-                this.iswaps++; // shift counter
             }
             ilist[k] = swap;
-            
-            this.iswaps++;  // increment swap counter
             
         }
  
@@ -141,8 +131,6 @@ public class Sorts
             slist[k] = slist[i]; 
             slist[i] = swap;
             
-            this.icompares++; // compare counter
-            this.iswaps++; // shift counter
     	}
             return slist;
     	
