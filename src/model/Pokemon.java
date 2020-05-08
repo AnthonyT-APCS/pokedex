@@ -34,12 +34,17 @@ public class Pokemon extends Extension{
 			break;
 		case pokedexnum:
 			output += this.pokeDexNum;
+			while (output.length() < 4)
+			{
+				output = "0" + output;
+			}
 			break;
 		case combination:
 		default:
 			output += type + ": " + this.name  + ", " + this.pokeDexNum; 
 		}
 		return output;
+
 		
 	}
 	
