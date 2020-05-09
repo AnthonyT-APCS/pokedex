@@ -45,21 +45,21 @@ public class UIMainMenu extends JFrame {
         display.setForeground(Color.WHITE);
         display.setEditable(false);
         
+        // start button
+        JButton text = new JButton("POKEMON");
+      
+        text.setForeground(Color.WHITE);
+        text.setBackground(new Color(0, 128, 0));
+        text.setFont(new Font("Tahoma", Font.PLAIN, 22));
+        text.setBounds(180, 663, 159, 61);
+        getContentPane().add(text);
+        
         // JLabel with image  
         JLabel pic = new JLabel("");
         pic.setBackground(Color.WHITE);
         pic.setIcon(new ImageIcon(image));
         pic.setBounds(0, 0, 1148, 769);
         content.add(pic);
-        
-        // start button
-        JButton text = new JButton("CLICK ME");
-      
-        text.setForeground(Color.WHITE);
-        text.setBackground(new Color(0, 128, 0));
-        text.setFont(new Font("Tahoma", Font.PLAIN, 27));
-        text.setBounds(180, 663, 159, 61);
-        getContentPane().add(text);
         
         text.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
