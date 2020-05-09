@@ -8,10 +8,15 @@ import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
 import javax.swing.border.Border;
+
+import model.CircleQueueDriver;
+import model.Pokemon;
+
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Container;
@@ -40,14 +45,35 @@ public class UIMainMenu extends JFrame {
         display.setForeground(Color.WHITE);
         display.setEditable(false);
         
-        display.setText("wassup");
-        
         // JLabel with image  
         JLabel pic = new JLabel("");
         pic.setBackground(Color.WHITE);
         pic.setIcon(new ImageIcon(image));
         pic.setBounds(0, 0, 1148, 769);
         content.add(pic);
+        
+        // start button
+        JButton text = new JButton("CLICK ME");
+      
+        text.setForeground(Color.WHITE);
+        text.setBackground(new Color(0, 128, 0));
+        text.setFont(new Font("Tahoma", Font.PLAIN, 27));
+        text.setBounds(180, 663, 159, 61);
+        getContentPane().add(text);
+        
+        text.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		ArrayList<Pokemon> pokemonl = new ArrayList<Pokemon>();
+        		pokemonl = Pokemon.pokemonData();
+        		String pokemons = "";
+        		int x;
+        		for(x = 0; x < pokemonl.size(); x++)
+        		{
+        			pokemons = pokemons + "\n" + pokemonl.get(x);
+        		}
+        		display.setText(pokemons);
+        	}
+        });
 	}
 
 	public static void main(String[] args) 
