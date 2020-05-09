@@ -54,6 +54,21 @@ public class UIMainMenu extends JFrame {
         text.setBounds(180, 663, 159, 61);
         getContentPane().add(text);
         
+       /* // additional power button
+        JButton power = new JButton("");
+        power.setEnabled(false);
+        power.setBackground(new Color(30, 144, 255));
+        power.setFont(new Font("Tahoma", Font.PLAIN, 11));
+        power.setBounds(44, 69, 73, 68);
+        getContentPane().add(power);*/
+        
+        // JLabel with image  
+        JLabel pic = new JLabel("");
+        pic.setBackground(Color.WHITE);
+        pic.setIcon(new ImageIcon(image));
+        pic.setBounds(0, 0, 1148, 769);
+        content.add(pic);
+        
         text.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		ArrayList<Pokemon> pokemonl = new ArrayList<Pokemon>();
@@ -65,22 +80,12 @@ public class UIMainMenu extends JFrame {
         			pokemons = pokemons + "\n" + pokemonl.get(x);
         		}
         		display.setText(pokemons);
+        		power.setBackground(new Color(0, 255, 255));
+        		
         	}
         });
-        
-        // additional power button
-        JButton power = new JButton("POWER");
-        power.setBounds(44, 69, 73, 68);
-        getContentPane().add(power);
-        
-        // JLabel with image  
-        JLabel pic = new JLabel("");
-        pic.setBackground(Color.WHITE);
-        pic.setIcon(new ImageIcon(image));
-        pic.setBounds(0, 0, 1148, 769);
-        content.add(pic);
 	}
-
+// 
 	public static void main(String[] args) 
 	{
 		EventQueue.invokeLater(new Runnable() 
