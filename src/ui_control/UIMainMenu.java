@@ -65,15 +65,40 @@ public class UIMainMenu extends JFrame {
         getContentPane().add(power);
         power.setVisible(false);
         
-        JLabel lblNewLabel = new JLabel("APCS: POKEDEX PROJECT");
+        JLabel lblNewLabel = new JLabel("APCS PERIOD 3: POKEDEX PROJECT");
         lblNewLabel.setFont(new Font("Yu Gothic UI Semibold", Font.BOLD, 20));
-        lblNewLabel.setBounds(790, 31, 307, 45);
+        lblNewLabel.setBounds(811, 0, 327, 45);
         getContentPane().add(lblNewLabel);
         
-        JLabel lblNewLabel_1 = new JLabel("APCS: POKEDEX PROJECT");
-        lblNewLabel_1.setFont(new Font("Yu Gothic UI Semibold", Font.BOLD, 20));
-        lblNewLabel_1.setBounds(790, 74, 307, 45);
-        getContentPane().add(lblNewLabel_1);
+        JLabel lblGroupMembers = new JLabel("GROUP MEMBERS: Anthony Chin, Lucy Gao,");
+        lblGroupMembers.setHorizontalAlignment(SwingConstants.RIGHT);
+        lblGroupMembers.setFont(new Font("Yu Gothic UI Semilight", Font.PLAIN, 15));
+        lblGroupMembers.setBounds(821, 35, 307, 45);
+        getContentPane().add(lblGroupMembers);
+        
+        JLabel lblAnthonyTsengJosh = new JLabel("Anthony Tseng, Josh Trost, Phoenix Dimagiba,");
+        lblAnthonyTsengJosh.setHorizontalAlignment(SwingConstants.RIGHT);
+        lblAnthonyTsengJosh.setFont(new Font("Yu Gothic UI Semilight", Font.PLAIN, 15));
+        lblAnthonyTsengJosh.setBounds(821, 55, 307, 45);
+        getContentPane().add(lblAnthonyTsengJosh);
+        
+        JLabel lblAnthonyTsengJosh_1 = new JLabel("Kevin Shihora, Leo Liang, Clay Castronovo,");
+        lblAnthonyTsengJosh_1.setHorizontalAlignment(SwingConstants.RIGHT);
+        lblAnthonyTsengJosh_1.setFont(new Font("Yu Gothic UI Semilight", Font.PLAIN, 15));
+        lblAnthonyTsengJosh_1.setBounds(821, 75, 307, 45);
+        getContentPane().add(lblAnthonyTsengJosh_1);
+        
+        JLabel lblAnthonyTsengJosh_1_1 = new JLabel("Andrew Stratton, Serena Xie, ");
+        lblAnthonyTsengJosh_1_1.setHorizontalAlignment(SwingConstants.RIGHT);
+        lblAnthonyTsengJosh_1_1.setFont(new Font("Yu Gothic UI Semilight", Font.PLAIN, 15));
+        lblAnthonyTsengJosh_1_1.setBounds(835, 95, 292, 45);
+        getContentPane().add(lblAnthonyTsengJosh_1_1);
+        
+        JLabel lblAnthonyTsengJosh_1_1_1 = new JLabel("Adhith Guntur ");
+        lblAnthonyTsengJosh_1_1_1.setHorizontalAlignment(SwingConstants.RIGHT);
+        lblAnthonyTsengJosh_1_1_1.setFont(new Font("Yu Gothic UI Semilight", Font.PLAIN, 15));
+        lblAnthonyTsengJosh_1_1_1.setBounds(837, 115, 292, 45);
+        getContentPane().add(lblAnthonyTsengJosh_1_1_1);
         //power.setHorizontalTextPosition(SwingConstants.CENTER);
         
         	
