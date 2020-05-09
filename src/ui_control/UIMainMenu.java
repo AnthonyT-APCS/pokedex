@@ -74,6 +74,11 @@ public class UIMainMenu extends JFrame {
         		display.setText(pokemons);
         	}
         });
+        
+        // additional power button
+        JButton power = new JButton("New button");
+        power.setBounds(10, 63, 85, 70);
+        getContentPane().add(power);
 	}
 
 	public static void main(String[] args) 
