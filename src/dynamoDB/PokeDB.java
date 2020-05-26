@@ -28,7 +28,9 @@ public class PokeDB {
 	private static Index skpkIndex;
 	
 	public static void main(String[] args) {
-		ArrayList<Item> itemArray = searchPokemon("Grass", "O");
+		ArrayList<Item> typeArray = getType("grass");
+		System.out.println(typeArray);
+		
 	}
 	
 	private static void init() {
@@ -48,7 +50,7 @@ public class PokeDB {
             .build();
         
         dynamoDB = new DynamoDB(client);
-        poketable = dynamoDB.getTable("Poked");
+        poketable = dynamoDB.getTable("Pokedex");
         skIndex = poketable.getIndex("SK-index");
         type2Index = poketable.getIndex("SecondaryType-index");
         skpkIndex = poketable.getIndex("SK-PK-index");
@@ -106,6 +108,18 @@ public class PokeDB {
         }
         
         return itemArray;
+	}
+	
+	public static Item getPokemon(String name) {
+		init();
+		
+		QuerySpec spec = new QuerySpec().withKeyConditionExpression("PK = :name")
+				.withValueMap(new ValueMap().withString(":name", name));
+		ItemCollection<QueryOutcome> items = poketable.query(spec);
+		Iterator<Item> iter = items.iterator();
+		Item item = iter.next();
+		
+		return item;
 	}
 	
 	public static Item getPokemon(String name, String type) {
