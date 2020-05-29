@@ -13,17 +13,20 @@ import com.amazonaws.services.dynamodbv2.document.Item;
 import com.amazonaws.services.dynamodbv2.document.ItemCollection;
 import com.amazonaws.services.dynamodbv2.document.QueryOutcome;
 import com.amazonaws.services.dynamodbv2.document.Table;
+import com.amazonaws.services.dynamodbv2.document.spec.GetItemSpec;
 import com.amazonaws.services.dynamodbv2.document.spec.QuerySpec;
 import com.amazonaws.services.dynamodbv2.document.utils.ValueMap;
 
 public class SimplifiedDB {
-	
 	private static AmazonDynamoDB client;
 	private static DynamoDB dynamoDB;
 	private static Table poketable;
 	
-	private static void main(String[] args) {
-		ArrayList<Item> typeArray = getType("type:grass");
+	public static void main(String[] args) {
+		init();
+		//ArrayList<Item> typeArray = getType("grass");
+		Item item = poketable.getItem("regionPK", "region#kanto", "nameSK", "pkmn#bulbasaur");
+		System.out.println(item.getString("nameSK"));
 	}
 
 	private static void init() {
@@ -45,13 +48,14 @@ public class SimplifiedDB {
         dynamoDB = new DynamoDB(client);
         poketable = dynamoDB.getTable("Pokedex");
 	}
-	
+
 	public static ArrayList<Item> getType(String type) {
 		init();
 		ArrayList<Item> itemArray = new ArrayList<>();
 		
-		QuerySpec spec = new QuerySpec().withKeyConditionExpression("begins_with(TYPE, :type)")
-				.withValueMap(new ValueMap().withString(":type", "TYPE: " + type));
+		QuerySpec spec = new QuerySpec().withKeyConditionExpression("regionPK = :reg and begins_with(nameSK, :name)")
+				.withFilterExpression("typeMAIN = :type")
+				.withValueMap(new ValueMap().withString(":reg", "region#kanto").withString(":name", "pkmn#").withString(":type", type));
 		
 		ItemCollection<QueryOutcome> items = null;
         Iterator<Item> iterator = null;
@@ -60,12 +64,12 @@ public class SimplifiedDB {
         try {
             System.out.println("Querying " + type + " primary type pokemon");
             items = poketable.query(spec);
-            
+            System.out.println("aaa");
             iterator = items.iterator();
             while (iterator.hasNext()) {
                 item = iterator.next();
                 itemArray.add(item);
-                System.out.println(item.getString("PKMN-TYPE"));
+                System.out.println(item.getString("namePK"));
             }
 
         }
