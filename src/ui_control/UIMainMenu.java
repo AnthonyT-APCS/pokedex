@@ -110,6 +110,412 @@ public class UIMainMenu extends JFrame {
         pic.setBounds(0, 0, 1148, 769);
         content.add(pic);
         
+        JButton fireButton = new JButton("Fire");
+        fireButton.setForeground(new Color(0, 0, 0));
+        fireButton.setBackground(new Color(0, 0, 255));
+        fireButton.setFont(new Font("Tahoma", Font.PLAIN, 8));
+        fireButton.setBounds(663, 350, 50, 49);
+        getContentPane().add(fireButton);
+        
+        fireButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		ArrayList<Pokemon> pokemon1 = new ArrayList<Pokemon>();
+        		pokemon1 = Pokemon.pokemonData();
+        		ArrayList<Pokemon> pokemonFire = new ArrayList<Pokemon>();
+        		int x;
+        		for(x = 0; x < pokemon1.size(); x++) {
+        			if((pokemon1.get(x)).getType() == "fire") {
+        				pokemonFire.add(pokemon1.get(x));
+        			}
+        		}
+        		String pokemons = "";
+        		for(x = 0; x < pokemonFire.size(); x++)
+        		{
+        			pokemons = pokemons + "\n" + pokemonFire.get(x);
+        		}
+        		display.setText(pokemons);
+        		power.setVisible(true);
+        		//power.setIcon(new ImageIcon(image2));
+        	}
+        });
+        
+        JButton waterButton = new JButton("Water");
+        waterButton.setForeground(new Color(0, 0, 0));
+        waterButton.setBackground(new Color(0, 0, 255));
+        waterButton.setFont(new Font("Tahoma", Font.PLAIN, 8));
+        waterButton.setBounds(717, 350, 52, 49);
+        getContentPane().add(waterButton);
+        
+        waterButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		ArrayList<Pokemon> pokemon1 = new ArrayList<Pokemon>();
+        		pokemon1 = Pokemon.pokemonData();
+        		ArrayList<Pokemon> pokemon2 = new ArrayList<Pokemon>();
+        		int x;
+        		for(x = 0; x < pokemon1.size(); x++) {
+        			if((pokemon1.get(x)).getType() == "water") {
+        				pokemon2.add(pokemon1.get(x));
+        			}
+        		}
+        		String pokemons = "";
+        		for(x = 0; x < pokemon2.size(); x++)
+        		{
+        			pokemons = pokemons + "\n" + pokemon2.get(x);
+        		}
+        		display.setText(pokemons);
+        		power.setVisible(true);
+        		//power.setIcon(new ImageIcon(image2));
+        	}
+        });
+        
+        JButton grassButton = new JButton("Grass");
+        grassButton.setForeground(new Color(0, 0, 0));
+        grassButton.setBackground(new Color(0, 0, 255));
+        grassButton.setFont(new Font("Tahoma", Font.PLAIN, 8));
+        grassButton.setBounds(774, 350, 58, 49);
+        getContentPane().add(grassButton);
+        
+        grassButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		ArrayList<Pokemon> pokemon1 = new ArrayList<Pokemon>();
+        		pokemon1 = Pokemon.pokemonData();
+        		ArrayList<Pokemon> pokemon2 = new ArrayList<Pokemon>();
+        		int x;
+        		for(x = 0; x < pokemon1.size(); x++) {
+        			if((pokemon1.get(x)).getType() == "grass") {
+        				pokemon2.add(pokemon1.get(x));
+        			}
+        		}
+        		String pokemons = "";
+        		for(x = 0; x < pokemon2.size(); x++)
+        		{
+        			pokemons = pokemons + "\n" + pokemon2.get(x);
+        		}
+        		display.setText(pokemons);
+        		power.setVisible(true);
+        		//power.setIcon(new ImageIcon(image2));
+        	}
+        });
+        
+        JButton normalButton = new JButton("Normal");
+        normalButton.setForeground(new Color(0, 0, 0));
+        normalButton.setBackground(new Color(0, 0, 255));
+        normalButton.setFont(new Font("Tahoma", Font.PLAIN, 8));
+        normalButton.setBounds(836, 350, 55, 49);
+        getContentPane().add(normalButton);
+        
+        normalButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		ArrayList<Pokemon> pokemon1 = new ArrayList<Pokemon>();
+        		pokemon1 = Pokemon.pokemonData();
+        		ArrayList<Pokemon> pokemon2 = new ArrayList<Pokemon>();
+        		int x;
+        		for(x = 0; x < pokemon1.size(); x++) {
+        			if((pokemon1.get(x)).getType() == "normal") {
+        				pokemon2.add(pokemon1.get(x));
+        			}
+        		}
+        		String pokemons = "";
+        		for(x = 0; x < pokemon2.size(); x++)
+        		{
+        			pokemons = pokemons + "\n" + pokemon2.get(x);
+        		}
+        		display.setText(pokemons);
+        		power.setVisible(true);
+        		//power.setIcon(new ImageIcon(image2));
+        	}
+        });
+        
+        JButton bugButton = new JButton("Bug");
+        bugButton.setForeground(new Color(0, 0, 0));
+        bugButton.setBackground(new Color(0, 0, 255));
+        bugButton.setFont(new Font("Tahoma", Font.PLAIN, 8));
+        bugButton.setBounds(894, 350, 61, 49);
+        getContentPane().add(bugButton);
+        
+        bugButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		ArrayList<Pokemon> pokemon1 = new ArrayList<Pokemon>();
+        		pokemon1 = Pokemon.pokemonData();
+        		ArrayList<Pokemon> pokemon2 = new ArrayList<Pokemon>();
+        		int x;
+        		for(x = 0; x < pokemon1.size(); x++) {
+        			if((pokemon1.get(x)).getType() == "bug") {
+        				pokemon2.add(pokemon1.get(x));
+        			}
+        		}
+        		String pokemons = "";
+        		for(x = 0; x < pokemon2.size(); x++)
+        		{
+        			pokemons = pokemons + "\n" + pokemon2.get(x);
+        		}
+        		display.setText(pokemons);
+        		power.setVisible(true);
+        		//power.setIcon(new ImageIcon(image2));
+        	}
+        });
+        
+        JButton poisonButton = new JButton("Poison");
+        poisonButton.setForeground(new Color(0, 0, 0));
+        poisonButton.setBackground(new Color(0, 0, 255));
+        poisonButton.setFont(new Font("Tahoma", Font.PLAIN, 8));
+        poisonButton.setBounds(958, 350, 55, 49);
+        getContentPane().add(poisonButton);
+        
+        poisonButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		ArrayList<Pokemon> pokemon1 = new ArrayList<Pokemon>();
+        		pokemon1 = Pokemon.pokemonData();
+        		ArrayList<Pokemon> pokemon2 = new ArrayList<Pokemon>();
+        		int x;
+        		for(x = 0; x < pokemon1.size(); x++) {
+        			if((pokemon1.get(x)).getType() == "poison") {
+        				pokemon2.add(pokemon1.get(x));
+        			}
+        		}
+        		String pokemons = "";
+        		for(x = 0; x < pokemon2.size(); x++)
+        		{
+        			pokemons = pokemons + "\n" + pokemon2.get(x);
+        		}
+        		display.setText(pokemons);
+        		power.setVisible(true);
+        		//power.setIcon(new ImageIcon(image2));
+        	}
+        });
+        
+        JButton groundButton = new JButton("Ground");
+        groundButton.setForeground(new Color(0, 0, 0));
+        groundButton.setBackground(new Color(0, 0, 255));
+        groundButton.setFont(new Font("Tahoma", Font.PLAIN, 8));
+        groundButton.setBounds(1016, 350, 52, 49);
+        getContentPane().add(groundButton);
+        
+        groundButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		ArrayList<Pokemon> pokemon1 = new ArrayList<Pokemon>();
+        		pokemon1 = Pokemon.pokemonData();
+        		ArrayList<Pokemon> pokemon2 = new ArrayList<Pokemon>();
+        		int x;
+        		for(x = 0; x < pokemon1.size(); x++) {
+        			if((pokemon1.get(x)).getType() == "ground") {
+        				pokemon2.add(pokemon1.get(x));
+        			}
+        		}
+        		String pokemons = "";
+        		for(x = 0; x < pokemon2.size(); x++)
+        		{
+        			pokemons = pokemons + "\n" + pokemon2.get(x);
+        		}
+        		display.setText(pokemons);
+        		power.setVisible(true);
+        		//power.setIcon(new ImageIcon(image2));
+        	}
+        });
+        
+        JButton electricButton = new JButton("Electric");
+        electricButton.setForeground(new Color(0, 0, 0));
+        electricButton.setBackground(new Color(0, 0, 255));
+        electricButton.setFont(new Font("Tahoma", Font.PLAIN, 8));
+        electricButton.setBounds(663, 402, 50, 49);
+        getContentPane().add(electricButton);
+        
+        electricButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		ArrayList<Pokemon> pokemon1 = new ArrayList<Pokemon>();
+        		pokemon1 = Pokemon.pokemonData();
+        		ArrayList<Pokemon> pokemon2 = new ArrayList<Pokemon>();
+        		int x;
+        		for(x = 0; x < pokemon1.size(); x++) {
+        			if((pokemon1.get(x)).getType() == "electric") {
+        				pokemon2.add(pokemon1.get(x));
+        			}
+        		}
+        		String pokemons = "";
+        		for(x = 0; x < pokemon2.size(); x++)
+        		{
+        			pokemons = pokemons + "\n" + pokemon2.get(x);
+        		}
+        		display.setText(pokemons);
+        		power.setVisible(true);
+        		//power.setIcon(new ImageIcon(image2));
+        	}
+        });
+        
+        JButton IceButton = new JButton("Ice");
+        IceButton.setForeground(new Color(0, 0, 0));
+        IceButton.setBackground(new Color(0, 0, 255));
+        IceButton.setFont(new Font("Tahoma", Font.PLAIN, 8));
+        IceButton.setBounds(717, 402, 52, 49);
+        getContentPane().add(IceButton);
+        
+        IceButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		ArrayList<Pokemon> pokemon1 = new ArrayList<Pokemon>();
+        		pokemon1 = Pokemon.pokemonData();
+        		ArrayList<Pokemon> pokemon2 = new ArrayList<Pokemon>();
+        		int x;
+        		for(x = 0; x < pokemon1.size(); x++) {
+        			if((pokemon1.get(x)).getType() == "ice") {
+        				pokemon2.add(pokemon1.get(x));
+        			}
+        		}
+        		String pokemons = "";
+        		for(x = 0; x < pokemon2.size(); x++)
+        		{
+        			pokemons = pokemons + "\n" + pokemon2.get(x);
+        		}
+        		display.setText(pokemons);
+        		power.setVisible(true);
+        		//power.setIcon(new ImageIcon(image2));
+        	}
+        });
+        
+        JButton rockButton = new JButton("Rock");
+        rockButton.setForeground(new Color(0, 0, 0));
+        rockButton.setBackground(new Color(0, 0, 255));
+        rockButton.setFont(new Font("Tahoma", Font.PLAIN, 8));
+        rockButton.setBounds(774, 402, 58, 49);
+        getContentPane().add(rockButton);
+        
+        rockButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		ArrayList<Pokemon> pokemon1 = new ArrayList<Pokemon>();
+        		pokemon1 = Pokemon.pokemonData();
+        		ArrayList<Pokemon> pokemon2 = new ArrayList<Pokemon>();
+        		int x;
+        		for(x = 0; x < pokemon1.size(); x++) {
+        			if((pokemon1.get(x)).getType() == "rock") {
+        				pokemon2.add(pokemon1.get(x));
+        			}
+        		}
+        		String pokemons = "";
+        		for(x = 0; x < pokemon2.size(); x++)
+        		{
+        			pokemons = pokemons + "\n" + pokemon2.get(x);
+        		}
+        		display.setText(pokemons);
+        		power.setVisible(true);
+        		//power.setIcon(new ImageIcon(image2));
+        	}
+        });
+        
+        JButton dragonButton = new JButton("Dragon");
+        dragonButton.setForeground(new Color(0, 0, 0));
+        dragonButton.setBackground(new Color(0, 0, 255));
+        dragonButton.setFont(new Font("Tahoma", Font.PLAIN, 8));
+        dragonButton.setBounds(836, 402, 55, 49);
+        getContentPane().add(dragonButton);
+        
+        dragonButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		ArrayList<Pokemon> pokemon1 = new ArrayList<Pokemon>();
+        		pokemon1 = Pokemon.pokemonData();
+        		ArrayList<Pokemon> pokemon2 = new ArrayList<Pokemon>();
+        		int x;
+        		for(x = 0; x < pokemon1.size(); x++) {
+        			if((pokemon1.get(x)).getType() == "dragon") {
+        				pokemon2.add(pokemon1.get(x));
+        			}
+        		}
+        		String pokemons = "";
+        		for(x = 0; x < pokemon2.size(); x++)
+        		{
+        			pokemons = pokemons + "\n" + pokemon2.get(x);
+        		}
+        		display.setText(pokemons);
+        		power.setVisible(true);
+        		//power.setIcon(new ImageIcon(image2));
+        	}
+        });
+        
+        JButton flyingButton = new JButton("Flying");
+        flyingButton.setForeground(new Color(0, 0, 0));
+        flyingButton.setBackground(new Color(0, 0, 255));
+        flyingButton.setFont(new Font("Tahoma", Font.PLAIN, 8));
+        flyingButton.setBounds(894, 402, 61, 49);
+        getContentPane().add(flyingButton);
+        
+        flyingButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		ArrayList<Pokemon> pokemon1 = new ArrayList<Pokemon>();
+        		pokemon1 = Pokemon.pokemonData();
+        		ArrayList<Pokemon> pokemon2 = new ArrayList<Pokemon>();
+        		int x;
+        		for(x = 0; x < pokemon1.size(); x++) {
+        			if((pokemon1.get(x)).getType() == "flying") {
+        				pokemon2.add(pokemon1.get(x));
+        			}
+        		}
+        		String pokemons = "";
+        		for(x = 0; x < pokemon2.size(); x++)
+        		{
+        			pokemons = pokemons + "\n" + pokemon2.get(x);
+        		}
+        		display.setText(pokemons);
+        		power.setVisible(true);
+        		//power.setIcon(new ImageIcon(image2));
+        	}
+        });
+        
+        JButton psychicButton = new JButton("Psychic");
+        psychicButton.setForeground(new Color(0, 0, 0));
+        psychicButton.setBackground(new Color(0, 0, 255));
+        psychicButton.setFont(new Font("Tahoma", Font.PLAIN, 8));
+        psychicButton.setBounds(958, 402, 55, 49);
+        getContentPane().add(psychicButton);
+        
+        psychicButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		ArrayList<Pokemon> pokemon1 = new ArrayList<Pokemon>();
+        		pokemon1 = Pokemon.pokemonData();
+        		ArrayList<Pokemon> pokemon2 = new ArrayList<Pokemon>();
+        		int x;
+        		for(x = 0; x < pokemon1.size(); x++) {
+        			if((pokemon1.get(x)).getType() == "psychic") {
+        				pokemon2.add(pokemon1.get(x));
+        			}
+        		}
+        		String pokemons = "";
+        		for(x = 0; x < pokemon2.size(); x++)
+        		{
+        			pokemons = pokemons + "\n" + pokemon2.get(x);
+        		}
+        		display.setText(pokemons);
+        		power.setVisible(true);
+        		//power.setIcon(new ImageIcon(image2));
+        	}
+        });
+        
+        JButton steelButton = new JButton("Steel");
+        steelButton.setForeground(new Color(0, 0, 0));
+        steelButton.setBackground(new Color(0, 0, 255));
+        steelButton.setFont(new Font("Tahoma", Font.PLAIN, 8));
+        steelButton.setBounds(1016, 402, 50, 49);
+        getContentPane().add(steelButton);
+        
+        steelButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		ArrayList<Pokemon> pokemon1 = new ArrayList<Pokemon>();
+        		pokemon1 = Pokemon.pokemonData();
+        		ArrayList<Pokemon> pokemon2 = new ArrayList<Pokemon>();
+        		int x;
+        		for(x = 0; x < pokemon1.size(); x++) {
+        			if((pokemon1.get(x)).getType() == "steel") {
+        				pokemon2.add(pokemon1.get(x));
+        			}
+        		}
+        		String pokemons = "";
+        		for(x = 0; x < pokemon2.size(); x++)
+        		{
+        			pokemons = pokemons + "\n" + pokemon2.get(x);
+        		}
+        		display.setText(pokemons);
+        		power.setVisible(true);
+        		//power.setIcon(new ImageIcon(image2));
+        	}
+        });
+        
         text.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		ArrayList<Pokemon> pokemonl = new ArrayList<Pokemon>();
