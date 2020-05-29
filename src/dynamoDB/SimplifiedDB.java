@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import com.amazonaws.AmazonClientException;
+import com.amazonaws.auth.EnvironmentVariableCredentialsProvider;
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
@@ -40,13 +41,44 @@ public class SimplifiedDB {
                     "location (/Users/johnmortensen/.aws/credentials), and is in valid format.",
                     e);
         }
+        EnvironmentVariableCredentialsProvider e = new EnvironmentVariableCredentialsProvider();
+        
         client = AmazonDynamoDBClientBuilder.standard()
-        	.withCredentials(credentialsProvider)
+        	.withCredentials(new ProfileCredentialsProvider("readonly"))
             .withRegion("us-west-2")
             .build();
         
         dynamoDB = new DynamoDB(client);
         poketable = dynamoDB.getTable("Pokedex");
+	}
+	
+	public static ArrayList<Item> getAll() {
+		init();
+		ArrayList<Item> itemArray = new ArrayList<>();
+		
+		QuerySpec spec = new QuerySpec().withKeyConditionExpression("regionPK = :reg and begins_with(nameSK, :name)")
+				.withValueMap(new ValueMap().withString(":reg", "region#Kanto").withString(":name", "pkmn"));
+		
+		ItemCollection<QueryOutcome> items = null;
+		Iterator<Item> iterator = items.iterator();
+		Item item = null;
+
+        try {
+            System.out.println("Querying all pokemon");
+            items = poketable.query(spec);
+            iterator = items.iterator();
+            while (iterator.hasNext()) {
+                item = iterator.next();
+                itemArray.add(item);
+            }
+
+        }
+        catch (Exception e) {
+            System.err.println("Unable to query pokemon");
+            System.err.println(e.getMessage());
+        }
+        
+        return itemArray;
 	}
 
 	public static ArrayList<Item> getType(String type) {
@@ -68,7 +100,6 @@ public class SimplifiedDB {
             while (iterator.hasNext()) {
                 item = iterator.next();
                 itemArray.add(item);
-                System.out.println(item.getString("nameSK"));
             }
 
         }
