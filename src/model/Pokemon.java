@@ -24,6 +24,7 @@ public class Pokemon extends Extension{
 		this.pokeDexNum = pokedexnum; 
 	}
 
+
 	//Creating the object together. Adding all the characteristics to the object.
 	public String toString()
 	{
