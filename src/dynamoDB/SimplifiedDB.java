@@ -25,8 +25,8 @@ public class SimplifiedDB {
 	public static void main(String[] args) {
 		init();
 		//ArrayList<Item> typeArray = getType("grass");
-		Item item = poketable.getItem("regionPK", "region#kanto", "nameSK", "pkmn#bulbasaur");
-		System.out.println(item.getString("nameSK"));
+		ArrayList<Item> itemArray = getType("fire");
+		System.out.println(itemArray);
 	}
 
 	private static void init() {
@@ -55,7 +55,7 @@ public class SimplifiedDB {
 		
 		QuerySpec spec = new QuerySpec().withKeyConditionExpression("regionPK = :reg and begins_with(nameSK, :name)")
 				.withFilterExpression("typeMAIN = :type")
-				.withValueMap(new ValueMap().withString(":reg", "region#kanto").withString(":name", "pkmn#").withString(":type", type));
+				.withValueMap(new ValueMap().withString(":reg", "region#Kanto").withString(":name", "pkmn").withString(":type", type));
 		
 		ItemCollection<QueryOutcome> items = null;
         Iterator<Item> iterator = null;
@@ -64,12 +64,11 @@ public class SimplifiedDB {
         try {
             System.out.println("Querying " + type + " primary type pokemon");
             items = poketable.query(spec);
-            System.out.println("aaa");
             iterator = items.iterator();
             while (iterator.hasNext()) {
                 item = iterator.next();
                 itemArray.add(item);
-                System.out.println(item.getString("namePK"));
+                System.out.println(item.getString("nameSK"));
             }
 
         }
