@@ -2,6 +2,7 @@ package ui_control;
 
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Insets;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -21,7 +22,7 @@ import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Container;
-//
+
 public class UIMainMenu extends JFrame {
 	public UIMainMenu() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -99,21 +100,12 @@ public class UIMainMenu extends JFrame {
         lblAnthonyTsengJosh_1_1_1.setFont(new Font("Yu Gothic UI Semilight", Font.PLAIN, 15));
         lblAnthonyTsengJosh_1_1_1.setBounds(837, 115, 292, 45);
         getContentPane().add(lblAnthonyTsengJosh_1_1_1);
-        //power.setHorizontalTextPosition(SwingConstants.CENTER);
-        
-        	
-        
-        // JLabel with image  
-        JLabel pic = new JLabel("");
-        pic.setBackground(Color.WHITE);
-        pic.setIcon(new ImageIcon(image));
-        pic.setBounds(0, 0, 1148, 769);
-        content.add(pic);
         
         JButton fireButton = new JButton("Fire");
+        fireButton.setMargin(new Insets(1,1,1,1));
         fireButton.setForeground(new Color(0, 0, 0));
         fireButton.setBackground(new Color(0, 0, 255));
-        fireButton.setFont(new Font("Tahoma", Font.PLAIN, 8));
+        fireButton.setFont(new Font("Tahoma", Font.PLAIN, 11));
         fireButton.setBounds(663, 350, 50, 49);
         getContentPane().add(fireButton);
         
@@ -140,9 +132,10 @@ public class UIMainMenu extends JFrame {
         });
         
         JButton waterButton = new JButton("Water");
+        waterButton.setMargin(new Insets(1,1,1,1));
         waterButton.setForeground(new Color(0, 0, 0));
         waterButton.setBackground(new Color(0, 0, 255));
-        waterButton.setFont(new Font("Tahoma", Font.PLAIN, 8));
+        waterButton.setFont(new Font("Tahoma", Font.PLAIN, 11));
         waterButton.setBounds(717, 350, 52, 49);
         getContentPane().add(waterButton);
         
@@ -169,9 +162,10 @@ public class UIMainMenu extends JFrame {
         });
         
         JButton grassButton = new JButton("Grass");
+        grassButton.setMargin(new Insets(1,1,1,1));
         grassButton.setForeground(new Color(0, 0, 0));
         grassButton.setBackground(new Color(0, 0, 255));
-        grassButton.setFont(new Font("Tahoma", Font.PLAIN, 8));
+        grassButton.setFont(new Font("Tahoma", Font.PLAIN, 11));
         grassButton.setBounds(774, 350, 58, 49);
         getContentPane().add(grassButton);
         
@@ -198,9 +192,10 @@ public class UIMainMenu extends JFrame {
         });
         
         JButton normalButton = new JButton("Normal");
+        normalButton.setMargin(new Insets(1,1,1,1));
         normalButton.setForeground(new Color(0, 0, 0));
         normalButton.setBackground(new Color(0, 0, 255));
-        normalButton.setFont(new Font("Tahoma", Font.PLAIN, 8));
+        normalButton.setFont(new Font("Tahoma", Font.PLAIN, 11));
         normalButton.setBounds(836, 350, 55, 49);
         getContentPane().add(normalButton);
         
@@ -227,9 +222,10 @@ public class UIMainMenu extends JFrame {
         });
         
         JButton bugButton = new JButton("Bug");
+        bugButton.setMargin(new Insets(1,1,1,1));
         bugButton.setForeground(new Color(0, 0, 0));
         bugButton.setBackground(new Color(0, 0, 255));
-        bugButton.setFont(new Font("Tahoma", Font.PLAIN, 8));
+        bugButton.setFont(new Font("Tahoma", Font.PLAIN, 11));
         bugButton.setBounds(894, 350, 61, 49);
         getContentPane().add(bugButton);
         
@@ -256,9 +252,10 @@ public class UIMainMenu extends JFrame {
         });
         
         JButton poisonButton = new JButton("Poison");
+        poisonButton.setMargin(new Insets(1,1,1,1));
         poisonButton.setForeground(new Color(0, 0, 0));
         poisonButton.setBackground(new Color(0, 0, 255));
-        poisonButton.setFont(new Font("Tahoma", Font.PLAIN, 8));
+        poisonButton.setFont(new Font("Tahoma", Font.PLAIN, 11));
         poisonButton.setBounds(958, 350, 55, 49);
         getContentPane().add(poisonButton);
         
@@ -285,9 +282,10 @@ public class UIMainMenu extends JFrame {
         });
         
         JButton groundButton = new JButton("Ground");
+        groundButton.setMargin(new Insets(1,1,1,1));
         groundButton.setForeground(new Color(0, 0, 0));
         groundButton.setBackground(new Color(0, 0, 255));
-        groundButton.setFont(new Font("Tahoma", Font.PLAIN, 8));
+        groundButton.setFont(new Font("Tahoma", Font.PLAIN, 11));
         groundButton.setBounds(1016, 350, 52, 49);
         getContentPane().add(groundButton);
         
@@ -314,9 +312,10 @@ public class UIMainMenu extends JFrame {
         });
         
         JButton electricButton = new JButton("Electric");
+        electricButton.setMargin(new Insets(1,1,1,1));
         electricButton.setForeground(new Color(0, 0, 0));
         electricButton.setBackground(new Color(0, 0, 255));
-        electricButton.setFont(new Font("Tahoma", Font.PLAIN, 8));
+        electricButton.setFont(new Font("Tahoma", Font.PLAIN, 11));
         electricButton.setBounds(663, 402, 50, 49);
         getContentPane().add(electricButton);
         
@@ -343,9 +342,10 @@ public class UIMainMenu extends JFrame {
         });
         
         JButton IceButton = new JButton("Ice");
+        IceButton.setMargin(new Insets(1,1,1,1));
         IceButton.setForeground(new Color(0, 0, 0));
         IceButton.setBackground(new Color(0, 0, 255));
-        IceButton.setFont(new Font("Tahoma", Font.PLAIN, 8));
+        IceButton.setFont(new Font("Tahoma", Font.PLAIN, 11));
         IceButton.setBounds(717, 402, 52, 49);
         getContentPane().add(IceButton);
         
@@ -372,9 +372,10 @@ public class UIMainMenu extends JFrame {
         });
         
         JButton rockButton = new JButton("Rock");
+        rockButton.setMargin(new Insets(1,1,1,1));
         rockButton.setForeground(new Color(0, 0, 0));
         rockButton.setBackground(new Color(0, 0, 255));
-        rockButton.setFont(new Font("Tahoma", Font.PLAIN, 8));
+        rockButton.setFont(new Font("Tahoma", Font.PLAIN, 11));
         rockButton.setBounds(774, 402, 58, 49);
         getContentPane().add(rockButton);
         
@@ -401,9 +402,10 @@ public class UIMainMenu extends JFrame {
         });
         
         JButton dragonButton = new JButton("Dragon");
+        dragonButton.setMargin(new Insets(1,1,1,1));
         dragonButton.setForeground(new Color(0, 0, 0));
         dragonButton.setBackground(new Color(0, 0, 255));
-        dragonButton.setFont(new Font("Tahoma", Font.PLAIN, 8));
+        dragonButton.setFont(new Font("Tahoma", Font.PLAIN, 11));
         dragonButton.setBounds(836, 402, 55, 49);
         getContentPane().add(dragonButton);
         
@@ -430,9 +432,10 @@ public class UIMainMenu extends JFrame {
         });
         
         JButton flyingButton = new JButton("Flying");
+        flyingButton.setMargin(new Insets(1,1,1,1));
         flyingButton.setForeground(new Color(0, 0, 0));
         flyingButton.setBackground(new Color(0, 0, 255));
-        flyingButton.setFont(new Font("Tahoma", Font.PLAIN, 8));
+        flyingButton.setFont(new Font("Tahoma", Font.PLAIN, 11));
         flyingButton.setBounds(894, 402, 61, 49);
         getContentPane().add(flyingButton);
         
@@ -459,9 +462,10 @@ public class UIMainMenu extends JFrame {
         });
         
         JButton psychicButton = new JButton("Psychic");
+        psychicButton.setMargin(new Insets(1,1,1,1));
         psychicButton.setForeground(new Color(0, 0, 0));
         psychicButton.setBackground(new Color(0, 0, 255));
-        psychicButton.setFont(new Font("Tahoma", Font.PLAIN, 8));
+        psychicButton.setFont(new Font("Tahoma", Font.PLAIN, 11));
         psychicButton.setBounds(958, 402, 55, 49);
         getContentPane().add(psychicButton);
         
@@ -488,11 +492,22 @@ public class UIMainMenu extends JFrame {
         });
         
         JButton steelButton = new JButton("Steel");
+        steelButton.setMargin(new Insets(1,1,1,1));
         steelButton.setForeground(new Color(0, 0, 0));
         steelButton.setBackground(new Color(0, 0, 255));
-        steelButton.setFont(new Font("Tahoma", Font.PLAIN, 8));
+        steelButton.setFont(new Font("Tahoma", Font.PLAIN, 11));
         steelButton.setBounds(1016, 402, 50, 49);
         getContentPane().add(steelButton);
+        //power.setHorizontalTextPosition(SwingConstants.CENTER);
+        
+        	
+        
+        // JLabel with image  
+        JLabel pic = new JLabel("");
+        pic.setBackground(Color.WHITE);
+        pic.setIcon(new ImageIcon(image));
+        pic.setBounds(0, 0, 1148, 769);
+        content.add(pic);
         
         steelButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
