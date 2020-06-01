@@ -43,7 +43,7 @@ public class login extends UIMainMenu{
 	//
 	//
 	
-	public loginUI() {
+	public login() {
 		
 	
 		setBounds(100, 100, 650, 563);
