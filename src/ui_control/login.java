@@ -23,7 +23,7 @@ import javax.swing.JPasswordField;
 import javax.swing.SwingConstants;
 import ui_control.*;
 
-public class login extends dbUItest{
+public class login extends UIMainMenu{
 	private JTextField txtLogin;
 	private JTextField Username;
 	private JPasswordField Password;
@@ -32,7 +32,7 @@ public class login extends dbUItest{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					dbUItest frame = new dbUItest();
+					UIMainMenu frame = new UIMainMenu();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
