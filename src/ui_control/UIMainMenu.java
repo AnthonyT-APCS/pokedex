@@ -7,6 +7,7 @@ import java.awt.Insets;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
+import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
@@ -65,6 +66,17 @@ public class UIMainMenu extends JFrame {
         power.setBounds(27, 48, 119, 115);
         getContentPane().add(power);
         power.setVisible(false);
+        
+        //added just now Anthony Chin
+        public static JTextField Usernames = new JTextField();
+        
+        Usernames.setText("Guest");
+		Usernames.setBounds(510, 11, 120, 20);
+		Usernames.setEditable(false);
+		panel.add(Usernames);
+		Usernames.setColumns(10);
+        
+        //
         
         JLabel lblNewLabel = new JLabel("APCS PERIOD 3: POKEDEX PROJECT");
         lblNewLabel.setFont(new Font("Yu Gothic UI Semibold", Font.BOLD, 20));
