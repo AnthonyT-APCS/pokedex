@@ -23,7 +23,7 @@ import javax.swing.JPasswordField;
 import javax.swing.SwingConstants;
 import ui_control.*;
 
-public class login extends UIMainMenu{
+public class login extends JFrame{
 	private JTextField txtLogin;
 	private JTextField Username;
 	private JPasswordField Password;
