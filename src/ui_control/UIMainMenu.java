@@ -12,6 +12,7 @@ import javax.swing.JTextPane;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 
+import UI.loginUI;
 import model.CircleQueueDriver;
 import model.Pokemon;
 
@@ -25,6 +26,8 @@ import java.awt.Color;
 import java.awt.Container;
 
 public class UIMainMenu extends JFrame {
+	 public static JTextField Usernames = new JTextField();
+	 
 	public UIMainMenu() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1162, 806);
@@ -68,12 +71,12 @@ public class UIMainMenu extends JFrame {
         power.setVisible(false);
         
         //added just now Anthony Chin
-        public static JTextField Usernames = new JTextField();
+       
         
         Usernames.setText("Guest");
 		Usernames.setBounds(510, 11, 120, 20);
 		Usernames.setEditable(false);
-		panel.add(Usernames);
+		content.add(Usernames);
 		Usernames.setColumns(10);
         
         //
@@ -516,6 +519,8 @@ public class UIMainMenu extends JFrame {
         JButton loginButton = new JButton("LOGIN");
         loginButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
+        	
+        			new login().setVisible(true);
         		
         	}
         });
