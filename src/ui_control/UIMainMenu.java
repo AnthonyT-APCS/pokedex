@@ -500,7 +500,7 @@ public class UIMainMenu extends JFrame {
         getContentPane().add(steelButton);
         
         
-        
+       // login button 
         JButton loginButton = new JButton("LOGIN");
         loginButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
