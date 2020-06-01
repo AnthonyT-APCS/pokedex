@@ -67,6 +67,7 @@ public class login extends JFrame{
 		txtLogin.setColumns(10);
 		
 		JTextField User1 = new JTextField();
+		User1.setEditable(false);
 		User1.setText("Guest");
 		User1.setForeground(new Color(255, 255, 255));
 		User1.setBackground(new Color(30, 144, 255));
