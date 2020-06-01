@@ -498,6 +498,19 @@ public class UIMainMenu extends JFrame {
         steelButton.setFont(new Font("Tahoma", Font.PLAIN, 11));
         steelButton.setBounds(1016, 402, 50, 49);
         getContentPane().add(steelButton);
+        
+        
+        
+        JButton loginButton = new JButton("LOGIN");
+        loginButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		
+        	}
+        });
+        loginButton.setBackground(Color.LIGHT_GRAY);
+        loginButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        loginButton.setBounds(671, 517, 159, 61);
+        getContentPane().add(loginButton);
         //power.setHorizontalTextPosition(SwingConstants.CENTER);
         
         	
