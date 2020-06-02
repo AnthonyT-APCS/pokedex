@@ -22,6 +22,7 @@ import java.awt.Font;
 import javax.swing.JPasswordField;
 import javax.swing.SwingConstants;
 import ui_control.*;
+import javax.swing.JTextArea;
 
 public class login extends JFrame{
 	private JTextField txtLogin;
@@ -90,6 +91,10 @@ public class login extends JFrame{
 		Username.setBounds(189, 161, 406, 40);
 		getContentPane().add(Username);
 		
+		JTextArea Confirm = new JTextArea();
+		Confirm.setBounds(26, 345, 240, 123);
+		getContentPane().add(Confirm);
+		
 		JButton Enter = new JButton("Enter");
 		Enter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -98,15 +103,16 @@ public class login extends JFrame{
 				
 				if(uname.equals("JMort") && pswd.equals("1234"))
 				{
-				//shows user logged in in top right corner instead of guest account
+				//shows user logged in in top right corner instead of guest account on login page
 				User1.setText("John Mortensen"); 
+				//shows user logged in at the top instead of guest account on main page
 				UIMainMenu.Usernames.setText("John Mortensen");
 				
-				
+				Confirm.setText("Welcome back Pokemon Trainer John Mortensen!");
 				}
 				else 
 				{
-			    //("Error"); 
+			    Confirm.setText("Error: Wrong Username or Password.");
 				}
 			}
 		});
@@ -119,6 +125,7 @@ public class login extends JFrame{
 		Password.setBounds(189, 272, 406, 40);
 		getContentPane().add(Password);
 		
+				
 		
 		
 	
