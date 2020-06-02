@@ -101,14 +101,14 @@ public class login extends JFrame{
 					
 				User1.setText("John Mortensen"); 
 					//shows user logged in in top right corner instead of guest account
-				//Usernames.setText("John Mortensen");
+				UIMainMenu.Usernames.setText("John Mortensen");
 			
 				
-				System.out.println("Welcome back Pokemon Trainer John Mortensen!");
+				//("Welcome back Pokemon Trainer John Mortensen!");
 				}
 				else 
 				{
-			    System.out.println("Error"); 
+			    //("Error"); 
 				}
 			}
 		});
