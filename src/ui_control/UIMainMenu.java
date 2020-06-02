@@ -27,6 +27,7 @@ import java.awt.Container;
 
 public class UIMainMenu extends JFrame {
 	 public static JTextField Usernames = new JTextField();
+	 private JTextField Screen2;
 	 
 	public UIMainMenu() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -528,16 +529,13 @@ public class UIMainMenu extends JFrame {
         loginButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
         loginButton.setBounds(671, 517, 159, 61);
         getContentPane().add(loginButton);
-        //power.setHorizontalTextPosition(SwingConstants.CENTER);
         
-        	
-        
-        // JLabel with image  
-        JLabel pic = new JLabel("");
-        pic.setBackground(Color.WHITE);
-        pic.setIcon(new ImageIcon(image));
-        pic.setBounds(0, 0, 1148, 769);
-        content.add(pic);
+        Screen2 = new JTextField();
+        Screen2.setText("test");
+        Screen2.setBackground(Color.BLACK);
+        Screen2.setBounds(683, 224, 360, 77);
+        getContentPane().add(Screen2);
+        Screen2.setColumns(10);
         
         steelButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
