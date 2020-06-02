@@ -530,12 +530,6 @@ public class UIMainMenu extends JFrame {
         loginButton.setBounds(671, 517, 159, 61);
         getContentPane().add(loginButton);
         
-        Screen2 = new JTextField();
-        Screen2.setText("test");
-        Screen2.setBackground(Color.BLACK);
-        Screen2.setBounds(683, 224, 360, 77);
-        getContentPane().add(Screen2);
-        Screen2.setColumns(10);
         
         steelButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {

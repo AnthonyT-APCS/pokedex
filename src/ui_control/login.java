@@ -98,13 +98,11 @@ public class login extends JFrame{
 				
 				if(uname.equals("JMort") && pswd.equals("1234"))
 				{
-					
+				//shows user logged in in top right corner instead of guest account
 				User1.setText("John Mortensen"); 
-					//shows user logged in in top right corner instead of guest account
 				UIMainMenu.Usernames.setText("John Mortensen");
-			
 				
-				//("Welcome back Pokemon Trainer John Mortensen!");
+				
 				}
 				else 
 				{
