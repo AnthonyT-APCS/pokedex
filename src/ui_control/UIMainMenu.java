@@ -99,6 +99,50 @@ public class UIMainMenu extends JFrame {
         lblAnthonyTsengJosh_1_1_1.setFont(new Font("Yu Gothic UI Semilight", Font.PLAIN, 15));
         lblAnthonyTsengJosh_1_1_1.setBounds(837, 115, 292, 45);
         getContentPane().add(lblAnthonyTsengJosh_1_1_1);
+        
+        JButton btnNewButton = new JButton("Alpha Sort");
+        btnNewButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) {
+        		ArrayList<Pokemon> pokemonl = new ArrayList<Pokemon>();
+        		pokemonl = Pokemon.pokemonData();
+        		String[] pokemons = {"Bulbasaur", "Ivysaur", "Venusaur", "Charmander", "Charmeleon", "Charizard", "Squirtle", "Wartortle", "Blastoise", "Caterpie", "Metapod", "Butterfree", "Weedle", "Kakuna", "Beedrill", "Pidgey", "Pidgeotto", "Pidgeot", "Rattata", "Raticate", "Spearow", "Fearow", "Ekans", "Arbok", "Pikachu", "Raichu", "Sandshrew", "Sandslash", "Nidoran♀", "Nidorina", };
+        		String test[] = new String[30];
+        		String temp;
+        		String result = "";
+        		int x;
+        		for(int k = 0; k < pokemonl.size(); k++)
+        		{
+        			test[k] = pokemonl.get(k).name;
+        		}
+        		for(x = 0; x < pokemons.length; x++)
+        		{
+        			for(int j= x +1; j < test.length; j++)
+        			{
+        				if(test[x].compareTo(test[j]) > 0)
+        				{
+        					temp = test[x];
+        					test[x] = test[j];
+        					test[j] = temp;
+
+        				}
+        			}
+        		}
+        		for(int i = 0; i < pokemonl.size(); i++)
+        		{
+					result += test[i] + " ";
+					for(int m = 0; m < pokemonl.size(); m++)
+					{
+						if(test[i].contentEquals(pokemonl.get(m).name))
+						{
+							result += pokemonl.get(m).pokeDexNum + "\n";						}
+					}
+        		}
+        		display.setText(result);
+        		power.setVisible(true);
+        	}
+        });
+        btnNewButton.setBounds(350, 663, 159, 61);
+        getContentPane().add(btnNewButton);
         //power.setHorizontalTextPosition(SwingConstants.CENTER);
         
         	
