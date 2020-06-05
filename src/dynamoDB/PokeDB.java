@@ -31,6 +31,7 @@ public class PokeDB {
 		ArrayList<Item> typeArray = getType("grass");
 		System.out.println(typeArray);
 		
+		searchPokemon("bul");
 	}
 	
 	private static void init() {

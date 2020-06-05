@@ -2,6 +2,9 @@ package model;
 
 import java.util.ArrayList;
 
+import com.amazonaws.services.dynamodbv2.document.Item;
+
+import dynamoDB.SimplifiedDB;
 import model.Extension;
 import model.Pokemon;
 import model.Pokemon.KeyType;
@@ -15,6 +18,14 @@ public class Pokemon extends Extension{
 	public String name;
 	public int pokeDexNum;
 	public static ArrayList<Pokemon> pokeArray; //use this for tester
+	public static ArrayList<Item> pokemonFire = SimplifiedDB.getType("fire");
+	public static ArrayList<Item> pokemonWater = SimplifiedDB.getType("water");
+	public static ArrayList<Item> pokemonGrass = SimplifiedDB.getType("grass");
+	public static ArrayList<Item> pokemonNormal = SimplifiedDB.getType("normal");
+	public static ArrayList<Item> pokemonBug = SimplifiedDB.getType("bug");
+	public static ArrayList<Item> pokemonPoison = SimplifiedDB.getType("poison");
+	public static ArrayList<Item> pokemonGround = SimplifiedDB.getType("ground");
+	public static ArrayList<Item> pokemonElectric = SimplifiedDB.getType("electric");
 	
 	//public class for creating object
 	public Pokemon(String name, int pokedexnum, String type)
@@ -23,6 +34,7 @@ public class Pokemon extends Extension{
 		this.name = name; 
 		this.pokeDexNum = pokedexnum; 
 	}
+
 
 	//Creating the object together. Adding all the characteristics to the object.
 	public String toString()

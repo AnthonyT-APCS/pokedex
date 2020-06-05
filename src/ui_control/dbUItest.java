@@ -2,17 +2,17 @@ package ui_control;
 
 import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.Insets;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
-import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 
-import ui_control.*;
+import com.amazonaws.services.dynamodbv2.document.Item;
+
+import dynamoDB.SimplifiedDB;
 import model.CircleQueueDriver;
 import model.Pokemon;
 
@@ -25,11 +25,8 @@ import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Container;
 
-public class UIMainMenu extends JFrame {
-	 public static JTextField Usernames = new JTextField();
-	 private JTextField Screen2;
-	 
-	public UIMainMenu() {
+public class dbUItest extends JFrame {
+	public dbUItest() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1162, 806);
         java.awt.Image image = new ImageIcon("img/background.PNG").getImage();
@@ -71,17 +68,6 @@ public class UIMainMenu extends JFrame {
         getContentPane().add(power);
         power.setVisible(false);
         
-        //added just now Anthony Chin
-       
-        
-        Usernames.setText("Guest");
-		Usernames.setBounds(510, 11, 120, 20);
-		Usernames.setEditable(false);
-		content.add(Usernames);
-		Usernames.setColumns(10);
-        
-        //
-        
         JLabel lblNewLabel = new JLabel("APCS PERIOD 3: POKEDEX PROJECT");
         lblNewLabel.setFont(new Font("Yu Gothic UI Semibold", Font.BOLD, 20));
         lblNewLabel.setBounds(811, 0, 327, 45);
@@ -116,75 +102,30 @@ public class UIMainMenu extends JFrame {
         lblAnthonyTsengJosh_1_1_1.setFont(new Font("Yu Gothic UI Semilight", Font.PLAIN, 15));
         lblAnthonyTsengJosh_1_1_1.setBounds(837, 115, 292, 45);
         getContentPane().add(lblAnthonyTsengJosh_1_1_1);
-
-        
-        JButton btnNewButton = new JButton("Alpha Sort");
-        btnNewButton.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent arg0) {
-        		ArrayList<Pokemon> pokemonl = new ArrayList<Pokemon>();
-        		pokemonl = Pokemon.pokemonData();
-         		String test[] = new String[30];
-        		String temp;
-        		String result = "";
-        		int x;
-        		for(int k = 0; k < pokemonl.size(); k++)
-        		{
-        			test[k] = pokemonl.get(k).name;
-        		}
-        		for(x = 0; x < test.length; x++)
-        		{
-        			for(int j= x +1; j < test.length; j++)
-        			{
-        				if(test[x].compareTo(test[j]) > 0)
-        				{
-        					temp = test[x];
-        					test[x] = test[j];
-        					test[j] = temp;
-
-        				}
-        			}
-        		}
-        		for(int i = 0; i < pokemonl.size(); i++)
-        		{
-					result += test[i] + " ";
-					for(int m = 0; m < pokemonl.size(); m++)
-					{
-						if(test[i].contentEquals(pokemonl.get(m).name))
-						{
-							result += pokemonl.get(m).pokeDexNum + "\n";						}
-					}
-        		}
-        		display.setText(result);
-        		power.setVisible(true);
-        	}
-        });
-        btnNewButton.setBounds(350, 663, 159, 61);
-        getContentPane().add(btnNewButton);
         //power.setHorizontalTextPosition(SwingConstants.CENTER);
         
+        	
+        
+        // JLabel with image  
+        JLabel pic = new JLabel("");
+        pic.setBackground(Color.WHITE);
+        pic.setIcon(new ImageIcon(image));
+        pic.setBounds(0, 0, 1148, 769);
+        content.add(pic);
+        
         JButton fireButton = new JButton("Fire");
-        fireButton.setMargin(new Insets(1,1,1,1));
         fireButton.setForeground(new Color(0, 0, 0));
         fireButton.setBackground(new Color(0, 0, 255));
-        fireButton.setFont(new Font("Tahoma", Font.PLAIN, 11));
+        fireButton.setFont(new Font("Tahoma", Font.PLAIN, 8));
         fireButton.setBounds(663, 350, 50, 49);
         getContentPane().add(fireButton);
         
         fireButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		ArrayList<Pokemon> pokemon1 = new ArrayList<Pokemon>();
-        		pokemon1 = Pokemon.pokemonData();
-        		ArrayList<Pokemon> pokemonFire = new ArrayList<Pokemon>();
-        		int x;
-        		for(x = 0; x < pokemon1.size(); x++) {
-        			if((pokemon1.get(x)).getType() == "fire") {
-        				pokemonFire.add(pokemon1.get(x));
-        			}
-        		}
         		String pokemons = "";
-        		for(x = 0; x < pokemonFire.size(); x++)
+        		for(Item i: Pokemon.pokemonFire)
         		{
-        			pokemons = pokemons + "\n" + pokemonFire.get(x);
+        			pokemons += "\n " + i.getNumber("index") + ", " + i.getString("nameSK").substring(5, 6).toUpperCase() + i.getString("nameSK").substring(6);
         		}
         		display.setText(pokemons);
         		power.setVisible(true);
@@ -193,28 +134,18 @@ public class UIMainMenu extends JFrame {
         });
         
         JButton waterButton = new JButton("Water");
-        waterButton.setMargin(new Insets(1,1,1,1));
         waterButton.setForeground(new Color(0, 0, 0));
         waterButton.setBackground(new Color(0, 0, 255));
-        waterButton.setFont(new Font("Tahoma", Font.PLAIN, 11));
+        waterButton.setFont(new Font("Tahoma", Font.PLAIN, 8));
         waterButton.setBounds(717, 350, 52, 49);
         getContentPane().add(waterButton);
         
         waterButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		ArrayList<Pokemon> pokemon1 = new ArrayList<Pokemon>();
-        		pokemon1 = Pokemon.pokemonData();
-        		ArrayList<Pokemon> pokemon2 = new ArrayList<Pokemon>();
-        		int x;
-        		for(x = 0; x < pokemon1.size(); x++) {
-        			if((pokemon1.get(x)).getType() == "water") {
-        				pokemon2.add(pokemon1.get(x));
-        			}
-        		}
         		String pokemons = "";
-        		for(x = 0; x < pokemon2.size(); x++)
+        		for(Item i: Pokemon.pokemonWater)
         		{
-        			pokemons = pokemons + "\n" + pokemon2.get(x);
+        			pokemons += "\n " + i.getNumber("index") + ", " + i.getString("nameSK").substring(5, 6).toUpperCase() + i.getString("nameSK").substring(6);
         		}
         		display.setText(pokemons);
         		power.setVisible(true);
@@ -223,28 +154,18 @@ public class UIMainMenu extends JFrame {
         });
         
         JButton grassButton = new JButton("Grass");
-        grassButton.setMargin(new Insets(1,1,1,1));
         grassButton.setForeground(new Color(0, 0, 0));
         grassButton.setBackground(new Color(0, 0, 255));
-        grassButton.setFont(new Font("Tahoma", Font.PLAIN, 11));
+        grassButton.setFont(new Font("Tahoma", Font.PLAIN, 8));
         grassButton.setBounds(774, 350, 58, 49);
         getContentPane().add(grassButton);
         
         grassButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		ArrayList<Pokemon> pokemon1 = new ArrayList<Pokemon>();
-        		pokemon1 = Pokemon.pokemonData();
-        		ArrayList<Pokemon> pokemon2 = new ArrayList<Pokemon>();
-        		int x;
-        		for(x = 0; x < pokemon1.size(); x++) {
-        			if((pokemon1.get(x)).getType() == "grass") {
-        				pokemon2.add(pokemon1.get(x));
-        			}
-        		}
         		String pokemons = "";
-        		for(x = 0; x < pokemon2.size(); x++)
+        		for(Item i: Pokemon.pokemonGrass)
         		{
-        			pokemons = pokemons + "\n" + pokemon2.get(x);
+        			pokemons += "\n " + i.getNumber("index") + ", " + i.getString("nameSK").substring(5, 6).toUpperCase() + i.getString("nameSK").substring(6);
         		}
         		display.setText(pokemons);
         		power.setVisible(true);
@@ -253,28 +174,18 @@ public class UIMainMenu extends JFrame {
         });
         
         JButton normalButton = new JButton("Normal");
-        normalButton.setMargin(new Insets(1,1,1,1));
         normalButton.setForeground(new Color(0, 0, 0));
         normalButton.setBackground(new Color(0, 0, 255));
-        normalButton.setFont(new Font("Tahoma", Font.PLAIN, 11));
+        normalButton.setFont(new Font("Tahoma", Font.PLAIN, 8));
         normalButton.setBounds(836, 350, 55, 49);
         getContentPane().add(normalButton);
         
         normalButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		ArrayList<Pokemon> pokemon1 = new ArrayList<Pokemon>();
-        		pokemon1 = Pokemon.pokemonData();
-        		ArrayList<Pokemon> pokemon2 = new ArrayList<Pokemon>();
-        		int x;
-        		for(x = 0; x < pokemon1.size(); x++) {
-        			if((pokemon1.get(x)).getType() == "normal") {
-        				pokemon2.add(pokemon1.get(x));
-        			}
-        		}
         		String pokemons = "";
-        		for(x = 0; x < pokemon2.size(); x++)
+        		for(Item i: Pokemon.pokemonNormal)
         		{
-        			pokemons = pokemons + "\n" + pokemon2.get(x);
+        			pokemons += "\n " + i.getNumber("index") + ", " + i.getString("nameSK").substring(5, 6).toUpperCase() + i.getString("nameSK").substring(6);
         		}
         		display.setText(pokemons);
         		power.setVisible(true);
@@ -283,28 +194,18 @@ public class UIMainMenu extends JFrame {
         });
         
         JButton bugButton = new JButton("Bug");
-        bugButton.setMargin(new Insets(1,1,1,1));
         bugButton.setForeground(new Color(0, 0, 0));
         bugButton.setBackground(new Color(0, 0, 255));
-        bugButton.setFont(new Font("Tahoma", Font.PLAIN, 11));
+        bugButton.setFont(new Font("Tahoma", Font.PLAIN, 8));
         bugButton.setBounds(894, 350, 61, 49);
         getContentPane().add(bugButton);
         
         bugButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		ArrayList<Pokemon> pokemon1 = new ArrayList<Pokemon>();
-        		pokemon1 = Pokemon.pokemonData();
-        		ArrayList<Pokemon> pokemon2 = new ArrayList<Pokemon>();
-        		int x;
-        		for(x = 0; x < pokemon1.size(); x++) {
-        			if((pokemon1.get(x)).getType() == "bug") {
-        				pokemon2.add(pokemon1.get(x));
-        			}
-        		}
         		String pokemons = "";
-        		for(x = 0; x < pokemon2.size(); x++)
+        		for(Item i: Pokemon.pokemonBug)
         		{
-        			pokemons = pokemons + "\n" + pokemon2.get(x);
+        			pokemons += "\n " + i.getNumber("index") + ", " + i.getString("nameSK").substring(5, 6).toUpperCase() + i.getString("nameSK").substring(6);
         		}
         		display.setText(pokemons);
         		power.setVisible(true);
@@ -313,28 +214,18 @@ public class UIMainMenu extends JFrame {
         });
         
         JButton poisonButton = new JButton("Poison");
-        poisonButton.setMargin(new Insets(1,1,1,1));
         poisonButton.setForeground(new Color(0, 0, 0));
         poisonButton.setBackground(new Color(0, 0, 255));
-        poisonButton.setFont(new Font("Tahoma", Font.PLAIN, 11));
+        poisonButton.setFont(new Font("Tahoma", Font.PLAIN, 8));
         poisonButton.setBounds(958, 350, 55, 49);
         getContentPane().add(poisonButton);
         
         poisonButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		ArrayList<Pokemon> pokemon1 = new ArrayList<Pokemon>();
-        		pokemon1 = Pokemon.pokemonData();
-        		ArrayList<Pokemon> pokemon2 = new ArrayList<Pokemon>();
-        		int x;
-        		for(x = 0; x < pokemon1.size(); x++) {
-        			if((pokemon1.get(x)).getType() == "poison") {
-        				pokemon2.add(pokemon1.get(x));
-        			}
-        		}
         		String pokemons = "";
-        		for(x = 0; x < pokemon2.size(); x++)
+        		for(Item i: Pokemon.pokemonPoison)
         		{
-        			pokemons = pokemons + "\n" + pokemon2.get(x);
+        			pokemons += "\n " + i.getNumber("index") + ", " + i.getString("nameSK").substring(5, 6).toUpperCase() + i.getString("nameSK").substring(6);
         		}
         		display.setText(pokemons);
         		power.setVisible(true);
@@ -343,28 +234,18 @@ public class UIMainMenu extends JFrame {
         });
         
         JButton groundButton = new JButton("Ground");
-        groundButton.setMargin(new Insets(1,1,1,1));
         groundButton.setForeground(new Color(0, 0, 0));
         groundButton.setBackground(new Color(0, 0, 255));
-        groundButton.setFont(new Font("Tahoma", Font.PLAIN, 11));
+        groundButton.setFont(new Font("Tahoma", Font.PLAIN, 8));
         groundButton.setBounds(1016, 350, 52, 49);
         getContentPane().add(groundButton);
         
         groundButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		ArrayList<Pokemon> pokemon1 = new ArrayList<Pokemon>();
-        		pokemon1 = Pokemon.pokemonData();
-        		ArrayList<Pokemon> pokemon2 = new ArrayList<Pokemon>();
-        		int x;
-        		for(x = 0; x < pokemon1.size(); x++) {
-        			if((pokemon1.get(x)).getType() == "ground") {
-        				pokemon2.add(pokemon1.get(x));
-        			}
-        		}
         		String pokemons = "";
-        		for(x = 0; x < pokemon2.size(); x++)
+        		for(Item i: Pokemon.pokemonGround)
         		{
-        			pokemons = pokemons + "\n" + pokemon2.get(x);
+        			pokemons += "\n " + i.getNumber("index") + ", " + i.getString("nameSK").substring(5, 6).toUpperCase() + i.getString("nameSK").substring(6);
         		}
         		display.setText(pokemons);
         		power.setVisible(true);
@@ -373,28 +254,18 @@ public class UIMainMenu extends JFrame {
         });
         
         JButton electricButton = new JButton("Electric");
-        electricButton.setMargin(new Insets(1,1,1,1));
         electricButton.setForeground(new Color(0, 0, 0));
         electricButton.setBackground(new Color(0, 0, 255));
-        electricButton.setFont(new Font("Tahoma", Font.PLAIN, 11));
+        electricButton.setFont(new Font("Tahoma", Font.PLAIN, 8));
         electricButton.setBounds(663, 402, 50, 49);
         getContentPane().add(electricButton);
         
         electricButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		ArrayList<Pokemon> pokemon1 = new ArrayList<Pokemon>();
-        		pokemon1 = Pokemon.pokemonData();
-        		ArrayList<Pokemon> pokemon2 = new ArrayList<Pokemon>();
-        		int x;
-        		for(x = 0; x < pokemon1.size(); x++) {
-        			if((pokemon1.get(x)).getType() == "electric") {
-        				pokemon2.add(pokemon1.get(x));
-        			}
-        		}
         		String pokemons = "";
-        		for(x = 0; x < pokemon2.size(); x++)
+        		for(Item i: Pokemon.pokemonElectric)
         		{
-        			pokemons = pokemons + "\n" + pokemon2.get(x);
+        			pokemons += "\n " + i.getNumber("index") + ", " + i.getString("nameSK").substring(5, 6).toUpperCase() + i.getString("nameSK").substring(6);
         		}
         		display.setText(pokemons);
         		power.setVisible(true);
@@ -403,10 +274,9 @@ public class UIMainMenu extends JFrame {
         });
         
         JButton IceButton = new JButton("Ice");
-        IceButton.setMargin(new Insets(1,1,1,1));
         IceButton.setForeground(new Color(0, 0, 0));
         IceButton.setBackground(new Color(0, 0, 255));
-        IceButton.setFont(new Font("Tahoma", Font.PLAIN, 11));
+        IceButton.setFont(new Font("Tahoma", Font.PLAIN, 8));
         IceButton.setBounds(717, 402, 52, 49);
         getContentPane().add(IceButton);
         
@@ -433,10 +303,9 @@ public class UIMainMenu extends JFrame {
         });
         
         JButton rockButton = new JButton("Rock");
-        rockButton.setMargin(new Insets(1,1,1,1));
         rockButton.setForeground(new Color(0, 0, 0));
         rockButton.setBackground(new Color(0, 0, 255));
-        rockButton.setFont(new Font("Tahoma", Font.PLAIN, 11));
+        rockButton.setFont(new Font("Tahoma", Font.PLAIN, 8));
         rockButton.setBounds(774, 402, 58, 49);
         getContentPane().add(rockButton);
         
@@ -463,10 +332,9 @@ public class UIMainMenu extends JFrame {
         });
         
         JButton dragonButton = new JButton("Dragon");
-        dragonButton.setMargin(new Insets(1,1,1,1));
         dragonButton.setForeground(new Color(0, 0, 0));
         dragonButton.setBackground(new Color(0, 0, 255));
-        dragonButton.setFont(new Font("Tahoma", Font.PLAIN, 11));
+        dragonButton.setFont(new Font("Tahoma", Font.PLAIN, 8));
         dragonButton.setBounds(836, 402, 55, 49);
         getContentPane().add(dragonButton);
         
@@ -493,10 +361,9 @@ public class UIMainMenu extends JFrame {
         });
         
         JButton flyingButton = new JButton("Flying");
-        flyingButton.setMargin(new Insets(1,1,1,1));
         flyingButton.setForeground(new Color(0, 0, 0));
         flyingButton.setBackground(new Color(0, 0, 255));
-        flyingButton.setFont(new Font("Tahoma", Font.PLAIN, 11));
+        flyingButton.setFont(new Font("Tahoma", Font.PLAIN, 8));
         flyingButton.setBounds(894, 402, 61, 49);
         getContentPane().add(flyingButton);
         
@@ -523,10 +390,9 @@ public class UIMainMenu extends JFrame {
         });
         
         JButton psychicButton = new JButton("Psychic");
-        psychicButton.setMargin(new Insets(1,1,1,1));
         psychicButton.setForeground(new Color(0, 0, 0));
         psychicButton.setBackground(new Color(0, 0, 255));
-        psychicButton.setFont(new Font("Tahoma", Font.PLAIN, 11));
+        psychicButton.setFont(new Font("Tahoma", Font.PLAIN, 8));
         psychicButton.setBounds(958, 402, 55, 49);
         getContentPane().add(psychicButton);
         
@@ -553,28 +419,11 @@ public class UIMainMenu extends JFrame {
         });
         
         JButton steelButton = new JButton("Steel");
-        steelButton.setMargin(new Insets(1,1,1,1));
         steelButton.setForeground(new Color(0, 0, 0));
         steelButton.setBackground(new Color(0, 0, 255));
-        steelButton.setFont(new Font("Tahoma", Font.PLAIN, 11));
+        steelButton.setFont(new Font("Tahoma", Font.PLAIN, 8));
         steelButton.setBounds(1016, 402, 50, 49);
         getContentPane().add(steelButton);
-        
-        
-       // login button 
-        JButton loginButton = new JButton("LOGIN");
-        loginButton.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        	
-        			new login().setVisible(true);
-        		
-        	}
-        });
-        loginButton.setBackground(Color.LIGHT_GRAY);
-        loginButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
-        loginButton.setBounds(671, 517, 159, 61);
-        getContentPane().add(loginButton);
-        
         
         steelButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
@@ -623,7 +472,7 @@ public class UIMainMenu extends JFrame {
 			{
 				try 
 				{
-					UIMainMenu frame = new UIMainMenu();
+					dbUItest frame = new dbUItest();
 					frame.setVisible(true);
 				} catch (Exception e) 
 				{
